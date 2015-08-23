@@ -6,9 +6,9 @@ This repository contains the source code used to create the **Outcome Analyzer**
 
 This part of the Final Peer Review project for the Coursera Developing Data Products course (devdataprod-31).
 
-The application shows the use of **Shiny** and various user interactive inputs which change graphical output on-the-fly.  
+The application shows the use of **Shiny** and various user interactive inputs which change graphical output on-the-fly in real-time.  
 
-### Contents
+### Repo Contents
 
 - **ui.R** - the user interfance portion of the application
 - **server.R** - the server portion of the application
