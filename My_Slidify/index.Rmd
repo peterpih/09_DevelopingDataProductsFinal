@@ -9,16 +9,36 @@ hitheme     : tomorrow      #
 widgets     : []            # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft}
 knit        : slidify::knit2slides
----
-
-## Read-And-Delete
-
-1. Edit YAML front matter
-2. Write using R Markdown
-3. Use an empty line followed by three dashes to separate slides!
 
 --- .class #id 
 
-## Slide 2
+## Slide 2 - Motivation for product
 
 Test slide 2
+
+--- .class #id 
+
+## Slide 3
+
+Test slide 3
+
+--- .class #id 
+
+## Slide 3
+
+Test slide 3
+
+--- .class #id 
+
+## Slide 5
+
+A demonstration of the Outcome Analyzer can be run by following this link:
+
+http://peterpih.github.io/09_DevelopingDataProductsFinal/My_Slidify/index
+
+
+
+Outcome Analyzer is offered under the standard [Beerware](https://en.wikipedia.org/wiki/Beerware) license.
+
+
+
