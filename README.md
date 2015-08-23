@@ -13,6 +13,7 @@ The application uses **Shiny** and demonstrates various interactive user inputs 
 - **ui.R** - the user interfance portion of the application
 - **server.R** - the server portion of the application
 - **My_Slidify** - the subdirectory containing the Slidify pitch deck (master and gh-pages)
+- **My_Slidify/index.Rmd** - the Slidify pitch deck
 
 ###Additional links
 
