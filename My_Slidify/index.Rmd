@@ -10,62 +10,81 @@ widgets     : []            # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft}
 knit        : slidify::knit2slides
 
+
 --- .class #id 
 
-## Slide 2 - Introduction
+## Introduction
 
 <style>
 strong {
   font-weight: bolder;
 }
+em {
+  font-weight: bolder;
+  font-style: italic;
+}
+
+small {
+    font-size: 60%;
+    line-height: 20%;
+}
 </style>
-
-<strong>Outcome Analyzer</strong> is a clinical software graphical package which is helpful is determining the effectiveness of treatment supplements and corresponding dosage levels.
-
-<strong>Outcome Analyzer</strong> is implemented in <srtong>R</strong> and <strong>Slidify</strong>, both open source, publicly available and maintained software 
-
-
-
+<br>  
+<strong>Outcome Analyzer</strong> is a software graphical package which helps determine the sgnificance and effectiveness of treatment supplements and dosage levels. This type of analysis is very common for clinical trails, patient dosage determination, and regime therapy inference.  
+<br>  
+<strong>Outcome Analyzer</strong> was the result of a need by budding data scientists to find answers for <em>cause-and-effect</em> questions on various datasets. Indeed, it is specific for this specific category of questions and is a powerful visual tool for evaluation.  
+<br>  
+<strong>Outcome Analyzer</strong> is implemented in <strong>R</strong> and <strong>Slidify</strong>, both <em>Open Source</em>, publicly available software packages supported by large communities of users.  
 
 
 --- .class #id 
 
-## Slide 3 - Graphs
+## Graphical Display
 
-Using Outcome Analyzer, it is easy to see the effectiveness of treatments by dosage or supplement, or both
+<strong>Outcome Analyzer</strong> easily shows the effectiveness of treatments by dosage or supplement
 
-```{R}
-par(mfrow = c(1, 3))  # 3 rows and 2 columns
+```{R echo=FALSE}
+#par(mfrow = c(1, 1), mar=c(1,1,1,1))  # 3 rows and 2 columns
 # layout(matrix(c(1,1,2,3)), 1, 1, byrow=TRUE)
-boxplot(len~dose, data=ToothGrowth, ylab="Tooth Length", xlab="Dosage")
-boxplot(len~supp, data=ToothGrowth, ylab="Tooth Length", xlab="Supplement")
+#boxplot(len~dose, data=ToothGrowth, ylab="Tooth Length", xlab="Dosage")
+#boxplot(len~supp, data=ToothGrowth, ylab="Tooth Length", xlab="Supplement")
 boxplot(len~supp*dose, data=ToothGrowth, ylab="Tooth Length", xlab="Supplement and Dosage")
 ```
 
 --- .class #id 
 
-## Slide 4 - Demo Software
+## Demo Software To Try
 
-A demonstration of the Outcome Analyzer can be run by following this link:
+A demonstration version of <strong>Outcome Analyzer</strong> can be found here:
   
   
 http://peterpih.github.io/09_DevelopingDataProductsFinal/My_Slidify/index
-  
-  
-The demonstration software is a fully functioning
 
+This demonstration is a subset of the full functionality of <strong>Outcome Analyzer</strong>.  
 
-Outcome Analyzer is offered under the standard [Beerware](https://en.wikipedia.org/wiki/Beerware) license.
+You will be able to slice and dice the data in various ways representative of how the full version of <strong>Outcome Analyzer</strong> works.  We have made the user interface intutitive, easy to use, and reactive to changes in user input.
+
+Please contact us at: info@outcomeAnalyzer.com, with any questions, comments, or to receive further information.
+<br>
+<br>
+<br>
+<br>
+<small>Outcome Analyzer is offered under the standard [Beerware](https://en.wikipedia.org/wiki/Beerware) license.</small>
 
 --- .class #id 
 
-## Slide 5 - Appendix
+## Appendix
 
-Our demonstration of Outcome Analyzer uses the tooth growth dataset: **ToothGrowth** available in the R base dataset.
+The demonstration version of <strong>Outcome Analyzer</strong> uses the tooth growth dataset: <em>ToothGrowth</em> available in the R base dataset.
 
-The dataset has 60 observations of tooth growth using supplements of either **Orange Juice** (30 observations) or **Vitamin C** (30 observations) at three different dosage levels: 0.5mg, 1.0mg, and 2.0mg (10 observations each).
-
-'''{R}
-summary(ToothGrowth)
+```{R}
+data("ToothGrowth")
 ```
+<br>
+This dataset has 60 observations of tooth growth and is based on a study using supplements of either <em>Orange Juice</em> (30 observations) or <em>Vitamin C</em> (30 observations) at three different dosage levels: 0.5mg, 1.0mg, and 2.0mg (10 observations each).
 
+<br>
+<br>
+<br>
+<small> Fine print:  
+<strong>Outcome Analyzer</strong> is only using the ToothGrowth dataset for illustrative purposes and was not responsible for the actual study or its results. As far as we know, this study was supervised by trained, certified animal care practitioners, and all guinea pigs were treated humanely and with the utmost care.</small>
