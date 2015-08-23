@@ -82,4 +82,4 @@ This dataset has 60 observations of tooth growth and is based on a study using s
 <br>
 <br>
 <small> Fine print:  
-<strong>Outcome Analyzer</strong> is only using the ToothGrowth dataset for illustrative purposes and was not responsible for the actual study or its results. As far as we know, this study was supervised by trained, certified animal care practitioners, and all guinea pigs were treated humanely and with the utmost care.</small>
+<strong>Outcome Analyzer</strong> is only using the ToothGrowth dataset for illustrative purposes in its demonstration software and was not responsible for the actual study or its results. As far as we know, this study was supervised by trained, certified animal care practitioners, and all guinea pigs were treated humanely and with the utmost care.</small>

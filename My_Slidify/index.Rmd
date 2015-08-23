@@ -44,11 +44,10 @@ small {
 <strong>Outcome Analyzer</strong> easily shows the effectiveness of treatments by dosage or supplement
 
 ```{R echo=FALSE}
-#par(mfrow = c(1, 1), mar=c(1,1,1,1))  # 3 rows and 2 columns
-# layout(matrix(c(1,1,2,3)), 1, 1, byrow=TRUE)
-#boxplot(len~dose, data=ToothGrowth, ylab="Tooth Length", xlab="Dosage")
-#boxplot(len~supp, data=ToothGrowth, ylab="Tooth Length", xlab="Supplement")
-boxplot(len~supp*dose, data=ToothGrowth, ylab="Tooth Length", xlab="Supplement and Dosage")
+par(mfrow = c(1, 2))  # 1 rows and 2 columns
+boxplot(len~dose, data=ToothGrowth, ylab="Tooth Length", xlab="Dosage")
+boxplot(len~supp, data=ToothGrowth, ylab="Tooth Length", xlab="Supplement")
+# boxplot(len~supp*dose, data=ToothGrowth, ylab="Tooth Length", xlab="Supplement and Dosage")
 ```
 
 --- .class #id 
@@ -87,4 +86,4 @@ This dataset has 60 observations of tooth growth and is based on a study using s
 <br>
 <br>
 <small> Fine print:  
-<strong>Outcome Analyzer</strong> is only using the ToothGrowth dataset for illustrative purposes and was not responsible for the actual study or its results. As far as we know, this study was supervised by trained, certified animal care practitioners, and all guinea pigs were treated humanely and with the utmost care.</small>
+<strong>Outcome Analyzer</strong> is only using the ToothGrowth dataset for illustrative purposes in its demonstration software and was not responsible for the actual study or its results. As far as we know, this study was supervised by trained, certified animal care practitioners, and all guinea pigs were treated humanely and with the utmost care.</small>
