@@ -49,10 +49,10 @@ small {
 
 ## Demo Software To Try
 
-A demonstration version of <strong>Outcome Analyzer</strong> can be found here:
+A demonstration version of <strong>Outcome Analyzer</strong> can be found on the <strong>Shiny.io</strong> server:
   
   
-http://peterpih.github.io/09_DevelopingDataProductsFinal/My_Slidify/index
+https://peterpih.shinyapps.io/09_DevelopingDataProductsFinal
 
 This demonstration is a subset of the full functionality of <strong>Outcome Analyzer</strong>.  
 
