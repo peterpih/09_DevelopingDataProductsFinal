@@ -43,10 +43,17 @@
     <!-- SLIDES -->
     <slide class="class" id="id" style="background:;">
   <hgroup>
-    <h2>Slide 2 - Motivation for product</h2>
+    <h2>Slide 2 - Introduction</h2>
   </hgroup>
   <article data-timings="">
-    <p>Test slide 2</p>
+    <style>
+strong {
+  font-weight: bolder;
+  font-size: 20
+}
+</style>
+
+<p><strong>Outcome Analyzer</strong> is a clinical software graphical package which is helpful is determining the effectiveness of treatment supplements and corresponding dosage levels</p>
 
   </article>
   <!-- Presenter Notes -->
@@ -54,10 +61,19 @@
 
 <slide class="class" id="id" style="background:;">
   <hgroup>
-    <h2>Slide 3</h2>
+    <h2>Slide 3 - Graphs</h2>
   </hgroup>
   <article data-timings="">
-    <p>Test slide 3</p>
+    <p>Using Outcome Analyzer, it is easy to see the effectiveness of treatments by dosage or supplement, or both</p>
+
+<pre><code class="r">par(mfrow = c(1, 3))  # 3 rows and 2 columns
+# layout(matrix(c(1,1,2,3)), 1, 1, byrow=TRUE)
+boxplot(len~dose, data=ToothGrowth, ylab=&quot;Tooth Length&quot;, xlab=&quot;Dosage&quot;)
+boxplot(len~supp, data=ToothGrowth, ylab=&quot;Tooth Length&quot;, xlab=&quot;Supplement&quot;)
+boxplot(len~supp*dose, data=ToothGrowth, ylab=&quot;Tooth Length&quot;, xlab=&quot;Supplement and Dosage&quot;)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-1-1.png" alt="plot of chunk unnamed-chunk-1"> </p>
 
   </article>
   <!-- Presenter Notes -->
@@ -65,25 +81,34 @@
 
 <slide class="class" id="id" style="background:;">
   <hgroup>
-    <h2>Slide 3</h2>
-  </hgroup>
-  <article data-timings="">
-    <p>Test slide 3</p>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="class" id="id" style="background:;">
-  <hgroup>
-    <h2>Slide 5</h2>
+    <h2>Slide 4 - Demo Software</h2>
   </hgroup>
   <article data-timings="">
     <p>A demonstration of the Outcome Analyzer can be run by following this link:</p>
 
 <p><a href="http://peterpih.github.io/09_DevelopingDataProductsFinal/My_Slidify/index">http://peterpih.github.io/09_DevelopingDataProductsFinal/My_Slidify/index</a></p>
 
+<p>The demonstration software is a fully functioning</p>
+
 <p>Outcome Analyzer is offered under the standard <a href="https://en.wikipedia.org/wiki/Beerware">Beerware</a> license.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Slide 5 - Appendix</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Our demonstration of Outcome Analyzer uses the tooth growth dataset: <strong>ToothGrowth</strong> available in the R base dataset.</p>
+
+<p>The dataset has 60 observations of tooth growth using supplements of either <strong>Orange Juice</strong> (30 observations) or <strong>Vitamin C</strong> (30 observations) at three different dosage levels: 0.5mg, 1.0mg, and 2.0mg (10 observations each).</p>
+
+<p>&#39;&#39;&#39;{R}
+summary(ToothGrowth)</p>
+
+<pre><code></code></pre>
 
   </article>
   <!-- Presenter Notes -->
@@ -95,25 +120,25 @@
     <ul>
       <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=1 title='Slide 2 - Motivation for product'>
+        data-slide=1 title='Slide 2 - Introduction'>
          1
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=2 title='Slide 3'>
+        data-slide=2 title='Slide 3 - Graphs'>
          2
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=3 title='Slide 3'>
+        data-slide=3 title='Slide 4 - Demo Software'>
          3
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=4 title='Slide 5'>
+        data-slide=4 title='Slide 5 - Appendix'>
          4
       </a>
     </li>
