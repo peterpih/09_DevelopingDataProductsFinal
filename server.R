@@ -2,15 +2,13 @@ library(shiny)
 library(datasets)
 library(UsingR)
 
-
+#
 # Define server logic required to summarize and view the selected dataset
+#
 shinyServer(function(input, output, session) {
     
-    # By declaring datasetInput as a reactive expression we ensure that:
     #
-    #  1) It is only called when the inputs it depends on changes
-    #  2) The computation and result are shared by all the callers (it 
-    #     only executes a single time)
+    # Which supplement did the user choose
     #
     chooseTreatment <- reactive({
         switch(input$chooseSupp,
@@ -31,9 +29,7 @@ shinyServer(function(input, output, session) {
     }
     #
     # Determine if the user wants a subet of the dataset
-    # len
-    # supp
-    # dose
+    #
     useData <- reactive({
 
         x <- ToothGrowth[order(ToothGrowth$supp),]
@@ -59,13 +55,10 @@ shinyServer(function(input, output, session) {
         
         useData <- x
     })
-    
-    my_jit <- function(){
-        input$jit
-    }
-    
+    #
+    # Which x axis did the user choose?
+    #
     plotParams <- reactive({
-        print(c("plotParams ~", input$check1, "~"))
         
         if (length(input$check1) == 1){
             if (input$check1 == "1"){
@@ -79,7 +72,6 @@ shinyServer(function(input, output, session) {
     })
     
     jitParams <- reactive({
-        print(c("jitParams ", input$check1))
         
         if (length(input$check1) == 1){
             if (input$check1 == "1"){
@@ -91,9 +83,11 @@ shinyServer(function(input, output, session) {
             len~jitter(as.numeric(supp)*dose, jitAmt())
         }
     })
-    
+    #
+    # Get the user amount of jitter to use in scatterplots
+    #
     jitAmt <- reactive ({
-        my_jit()
+        input$jit
     })
     
     x_axis_label <- function(){
@@ -107,10 +101,10 @@ shinyServer(function(input, output, session) {
             "Supplement Dosage"
         }
     }
-    
-    output$newHist <- renderPlot({
-                # hist(useData(), xlab='child height', col='lightblue',main='Histogram')
-        print(c("plot type", input$chartType))
+    #
+    # Show the user specified graph
+    #
+    output$main_plot <- renderPlot({
         
         if (input$chartType == "Box"){
             boxplot(plotParams(), data=useData(), xlab=x_axis_label(), ylab="Tooth Length")
@@ -119,44 +113,12 @@ shinyServer(function(input, output, session) {
             barchart(plotParams(), data=useData())
             
         } else if (input$chartType == "Scatter") {
-
-            plot(jitParams(), data=useData(), ylab="Tooth Length", col=supp, xlab="Dosage")
-            #plot(len~jitter(jitParams(),jitAmt()), data=useData(), ylab="Tooth Length", col=supp, xlab="Dosage")
-            print(c("data rows", nrow(useData())))
-            print(useData()[,1])
-            #axis(1, at = seq(0, 2, by = 0.5))
+            plot(jitParams(), data=useData(), ylab="Tooth Length", col=supp, xlab=x_axis_label())
         }
- 
-                # plotType(useData(), input$chartType)
-        
-#                 mu <- input$mu
-#                 lines(c(mu, mu), c(0, 200),col="red",lwd=5)
-#                 mse <- mean((galton$child - mu)^2)
-#                 text(63, 150, paste("mu = ", mu))
-#                 text(63, 140, paste("MSE = ", round(mse, 2)))
-            })
-    
-#     output$plot <- renderPlot({ 
-#         plotType(useData, input$chartType)
-#     })
-    
-    
-    # The output$caption is computed based on a reactive expression that
-    # returns input$caption. When the user changes the "caption" field:
-    #
-    #  1) This expression is automatically called to recompute the output 
-    #  2) The new caption is pushed back to the browser for re-display
-    # 
-    # Note that because the data-oriented reactive expressions below don't 
-    # depend on input$caption, those expressions are NOT called when 
-    # input$caption changes.
-    output$caption <- renderText({
-        input$caption
     })
-    
-    # The output$summary depends on the datasetInput reactive expression, 
-    # so will be re-executed whenever datasetInput is invalidated
-    # (i.e. whenever the input$dataset changes)
+    #
+    # Show a summary table of the selected data, always useful to have
+    #
     output$summary <- renderPrint({
         summary(useData())
     })
@@ -165,13 +127,9 @@ shinyServer(function(input, output, session) {
         input$check1
     })
     
-    output$mu2 <- renderPrint({
-        my_jit()
-  })
-    
-    # The output$view depends on both the databaseInput reactive expression
-    # and input$obs, so will be re-executed whenever input$dataset or 
-    # input$obs is changed. 
+    #
+    # Show some of the data, user can specify how many lines to show
+    #
     output$view <- renderTable({
         head(useData(), n = input$obs)
     })
